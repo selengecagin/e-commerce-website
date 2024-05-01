@@ -2,7 +2,7 @@ using e_commerce_website.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace e_commerce_website.Controllers
+namespace e_commerce_website.Areas.Customer.Controllers
 {
     public class HomeController : Controller
     {
