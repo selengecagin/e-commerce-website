@@ -19,7 +19,8 @@ namespace e_commerce_website.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var product = _db.Product.ToList();
+            return View(product);
         }
 
         public IActionResult Privacy()
