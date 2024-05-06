@@ -78,7 +78,11 @@ namespace e_commerce_website.Areas.Admin.Controllers
                             System.IO.File.Delete(imagePath);
                         }
                     }
-                 
+                    using (var filesStreams = new FileStream(Path.Combine(uploads, fileName + ext), FileMode.Create))
+                    {
+                        files[0].CopyTo(filesStreams);
+                    }
+                    product.Image = @"\images\product" + fileName + ext;
                 }
 
 
