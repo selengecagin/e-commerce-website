@@ -13,27 +13,12 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Image)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IsHome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IsStock)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Category)
-                </th>
+            <th>Image</th>
+                <th>Title</th>
+                <th>HomePage</th>
+                <th>Stock</th>
+                <th>Category</th>
+        
                 <th></th>
             </tr>
         </thead>
@@ -42,22 +27,32 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.Image)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IsHome)
+                        @Html.DisplayFor(modelItem => item.Title)
                     </td>
+                 
+                  
                     <td>
-                        @Html.DisplayFor(modelItem => item.IsStock)
+                        @if (item.IsHome)
+                        {
+                            <label class="btn btn-success btn-sm"><i class="bi bi-check-lg"></i></label>
+                        }
+                        else
+                        {
+                            <label class="btn btn-danger btn-sm"><i class="bi bi-x-lg"></i></label>
+                        }
+                        </td>
+                    <td>
+                        @if (item.IsStock)
+                        {
+                            <label class="btn btn-success btn-sm"><i class="bi bi-check-lg"></i></label>
+                        }
+                        else
+                        {
+                            <label class="btn btn-danger btn-sm"><i class="bi bi-x-lg"></i></label>
+                        }
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Category.Name)
