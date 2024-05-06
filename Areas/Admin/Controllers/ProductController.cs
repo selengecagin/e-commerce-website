@@ -183,8 +183,6 @@ namespace e_commerce_website.Areas.Admin.Controllers
             {
                 System.IO.File.Delete(imagePath);
             }
-
-
             if (product != null)
             {
                 _context.Product.Remove(product);
