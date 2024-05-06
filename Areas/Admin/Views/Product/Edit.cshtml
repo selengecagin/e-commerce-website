@@ -53,6 +53,16 @@
             </div>
         </form>
     </div>
+    <div class="col-md-4">
+        @if (Model.Image == null)
+        {
+            <img src="~/images/image/no-image-icon.png" width="150" height="100" />
+        }
+        else
+        {
+            <img src="@Model.Image" width="150" height="100" />
+        }
+    </div>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
