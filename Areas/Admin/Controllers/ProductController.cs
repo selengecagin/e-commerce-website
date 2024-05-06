@@ -175,6 +175,16 @@ namespace e_commerce_website.Areas.Admin.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.Product.FindAsync(id);
+
+
+
+            var imagePath = Path.Combine(_he.WebRootPath, product.Image.TrimStart('\\'));
+            if (System.IO.File.Exists(imagePath))
+            {
+                System.IO.File.Delete(imagePath);
+            }
+
+
             if (product != null)
             {
                 _context.Product.Remove(product);
