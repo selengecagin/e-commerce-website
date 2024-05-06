@@ -65,6 +65,7 @@ namespace e_commerce_website.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var files = HttpContext.Request.Form.Files;
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
