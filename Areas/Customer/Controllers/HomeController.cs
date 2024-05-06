@@ -19,7 +19,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            var product = _db.Product.ToList();
+            var product = _db.Product.Where(i=>i.IsHome).ToList();
             return View(product);
         }
 
