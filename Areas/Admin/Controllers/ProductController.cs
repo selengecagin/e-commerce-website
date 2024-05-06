@@ -71,6 +71,14 @@ namespace e_commerce_website.Areas.Admin.Controllers
                     string fileName = Guid.NewGuid().ToString();
                     var uploads = Path.Combine(_he.WebRootPath, @"images\product");
                     var ext = Path.GetExtension(files[0].FileName);
+                    if(product.Image != null) {
+                        var imagePath = Path.Combine(_he.WebRootPath, product.Image.TrimStart('\\'));
+                        if (System.IO.File.Exists(imagePath))
+                        {
+                            System.IO.File.Delete(imagePath);
+                        }
+                    }
+                 
                 }
 
 
