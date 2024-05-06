@@ -66,6 +66,14 @@ namespace e_commerce_website.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var files = HttpContext.Request.Form.Files;
+                if (files.Count > 0)
+                {
+                    string fileName = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(_he.WebRootPath, @"images\product");
+                    var ext = Path.GetExtension(files[0].FileName);
+                }
+
+
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
