@@ -17,6 +17,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProvid
 
 builder.Services.AddSingleton<IEmailSender,EmailSender>();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddRazorPages();
 
 
 var app = builder.Build();
