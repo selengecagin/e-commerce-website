@@ -12,5 +12,6 @@ namespace e_commerce_website.Data
         }
         public DbSet<Category> Categories { get; set; } //DB'de tablo burada tanımlanan isim ile oluşturulur.
         public DbSet<Product> Product { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
