@@ -40,7 +40,10 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager,
+            ApplicationDbContext db
+            )
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -48,6 +51,9 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _roleManager = roleManager;
+            _db = db;
+
         }
 
         /// <summary>
