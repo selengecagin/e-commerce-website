@@ -207,7 +207,14 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
                         await _roleManager.CreateAsync(new IdentityRole(Other.Role_Individual));
                     }
 
-                    await _userManager.AddToRoleAsync(user, Other.Role_Admin);
+           if(user.Role == null)
+                    {
+                        await _userManager.AddToRoleAsync(user, Other.Role_User);
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, user.Role);
+                    }
 
                     //  var userId = await _userManager.GetUserIdAsync(user);
                     //  var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
