@@ -100,22 +100,28 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
 
 
-            [Required]
+            [Required(ErrorMessage = "Name is required.")]
             public string Name { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Surname is required.")]
             public string Surname { get; set; }
 
+            [Required(ErrorMessage = "Address is required.")]
             public string Adress { get; set; }
 
+            [Required(ErrorMessage = "Region is required.")]
             public string Region { get; set; }
 
+            [Required(ErrorMessage = "City is required.")]
             public string City { get; set; }
 
+            [Required(ErrorMessage = "Province is required.")]
             public string Province { get; set; }
 
+            [Required(ErrorMessage = "Zip Code is required.")]
             public string ZipCode { get; set; }
 
+            [Required(ErrorMessage = "Telephone number is required.")]
             public string TelNo { get; set; }
 
             public string Role { get; set; }
