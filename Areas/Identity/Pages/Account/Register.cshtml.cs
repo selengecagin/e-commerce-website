@@ -176,17 +176,24 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
 
-                    if(!await _roleManager.RoleExistsAsync(Other.Role_Admin)) { 
-                    
-                        await _roleManager.CreateAsync(new IdentityRole(Other.Role_Admin))
+                    if(!await _roleManager.RoleExistsAsync(Other.Role_Admin)) {
+
+                        await _roleManager.CreateAsync(new IdentityRole(Other.Role_Admin));
                     }
 
 
                     if (!await _roleManager.RoleExistsAsync(Other.Role_User))
                     {
 
-                        await _roleManager.CreateAsync(new IdentityRole(Other.Role_User))
+                        await _roleManager.CreateAsync(new IdentityRole(Other.Role_User));
                     }
+
+                    if (!await _roleManager.RoleExistsAsync(Other.Role_Individual))
+                    {
+
+                        await _roleManager.CreateAsync(new IdentityRole(Other.Role_Individual));
+                    }
+
 
                     //  var userId = await _userManager.GetUserIdAsync(user);
                     //  var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
