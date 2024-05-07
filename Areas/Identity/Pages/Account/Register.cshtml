@@ -1,5 +1,6 @@
 ﻿@page
 @model RegisterModel
+@using e_commerce_website.Models
 @{
     ViewData["Title"] = "Register";
 }
@@ -75,6 +76,15 @@
                 <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+
+            @if (User.IsInRole(Other.Role_Admin))
+            {
+                <div class="form-group">
+                    @Html.DropDownListFor(i=>i.Input.Role,Model.Input.RoleList,"Select a Role",new{@class="form-control"})
+                </div>
+            }
+
+
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary form-control">Register</button>
         </form>
     </div>
