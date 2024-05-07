@@ -64,37 +64,35 @@ namespace e_commerce_website.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Product product)
         {
+            string defaultImagePath = @"\images\image\no-image-icon.png";
+
             if (ModelState.IsValid)
             {
+                product.Image = defaultImagePath; // tüm işlemlerden önce Image sütununa no-image-icon.png adresini veriyoruz.
+
                 var files = HttpContext.Request.Form.Files;
-                if (files.Count > 0)
+                if (files.Count > 0) // kullanıcı resim yüklediyse
                 {
                     string fileName = Guid.NewGuid().ToString();
                     var uploads = Path.Combine(_he.WebRootPath, @"images\product");
                     var ext = Path.GetExtension(files[0].FileName);
-                    if(product.Image != null) {
-                        var imagePath = Path.Combine(_he.WebRootPath, product.Image.TrimStart('\\'));
-                        if (System.IO.File.Exists(imagePath))
-                        {
-                            System.IO.File.Delete(imagePath);
-                        }
-                    }
+
+                    var imagePath = Path.Combine(_he.WebRootPath, fileName.TrimStart('\\'));
+
                     using (var filesStreams = new FileStream(Path.Combine(uploads, fileName + ext), FileMode.Create))
                     {
                         files[0].CopyTo(filesStreams);
                     }
-                    product.Image = @"\images\product" + fileName + ext;
+                    product.Image = @"\images\product\" + fileName + ext; // kullanıcı resim yüklediği için yeni üretilen random ismi sütuna yazıyoruz
                 }
-
 
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-         
+
             return View(product);
         }
-
         // GET: Admin/Product/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

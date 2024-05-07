@@ -17,7 +17,7 @@ namespace e_commerce_website.Models
         [Required]
         public double Price { get; set; }
 
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
 
         public bool IsHome { get; set; }
