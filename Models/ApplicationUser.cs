@@ -21,6 +21,7 @@ namespace e_commerce_website.Models
         public string Province { get; set; }
 
         public string ZipCode { get; set; }
+        public string TelNo { get; set; }
 
         [NotMapped]
         public string Role { get; set; }
