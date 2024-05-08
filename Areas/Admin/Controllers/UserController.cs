@@ -18,7 +18,15 @@ namespace e_commerce_website.Areas.Admin.Controllers
             var users= _context.ApplicationUsers.ToList();
             var role=_context.Roles.ToList();
             var userRole =_context.UserRoles.ToList();
-            return View();
+
+            foreach (var user in users)
+            {
+                var roleId = userRole.FirstOrDefault(i => i.UserId == user.Id).RoleId;
+
+                user.Role = role.FirstOrDefault(i => i.Id == roleId).Name;
+
+            }
+            return View(users);
         }
     }
 }
