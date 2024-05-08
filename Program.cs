@@ -21,16 +21,19 @@ builder.Services.AddSingleton<IEmailSender,EmailSender>();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddRazorPages();
 
-// **************
-builder.Services.ConfigureApplicationCookie(
+builder.Services.ConfigureApplicationCookie( options =>
     {
     options.LoginPath = $"/Identity/Account/Login";
-    options.LogOutPath = $"/Identity/Account/Logout";
+    options.LogoutPath = $"/Identity/Account/Logout";
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
 
-//**************
 
+builder.Services.AddAuthentication().AddFacebook(options =>
+{
+    options.AppId = "982910942884332";
+    options.AppSecret = "0a60ae646899dd3d3e489b04fe986f10";
+});
 
 var app = builder.Build();
 
