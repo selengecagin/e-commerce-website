@@ -25,9 +25,10 @@ builder.Services.AddRazorPages();
 builder.Services.ConfigureApplicationCookie(
     {
     options.LoginPath = $"/Identity/Account/Login";
-    options.LogOutPath= $"/Identity/Account/Logout";
+    options.LogOutPath = $"/Identity/Account/Logout";
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
+
 //**************
 
 
