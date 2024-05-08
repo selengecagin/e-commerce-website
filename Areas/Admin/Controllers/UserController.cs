@@ -1,5 +1,6 @@
 ﻿using e_commerce_website.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace e_commerce_website.Areas.Admin.Controllers
 {
@@ -27,6 +28,38 @@ namespace e_commerce_website.Areas.Admin.Controllers
 
             }
             return View(users);
+        }
+        // GET: Admin/User/Delete/5
+        public async Task<IActionResult> Delete(string? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.ApplicationUsers
+             .FirstOrDefaultAsync(m => m.Id == id.ToString());
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+        // POST: Admin/User/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            var user = await _context.ApplicationUsers.FindAsync(id);
+            if (user != null)
+            {
+                _context.ApplicationUsers.Remove(user);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
