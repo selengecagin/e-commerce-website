@@ -15,6 +15,7 @@ namespace e_commerce_website.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
+            var users= _context.ApplicationUsers.ToList();
             return View();
         }
     }
