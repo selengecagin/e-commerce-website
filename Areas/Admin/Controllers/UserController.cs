@@ -1,10 +1,13 @@
 ﻿using e_commerce_website.Data;
+using e_commerce_website.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace e_commerce_website.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = Other.Role_Admin)]
     public class UserController : Controller
     {
         private readonly ApplicationDbContext _context;
