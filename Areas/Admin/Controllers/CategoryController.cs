@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using e_commerce_website.Data;
 using e_commerce_website.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace e_commerce_website.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = Other.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _context;
