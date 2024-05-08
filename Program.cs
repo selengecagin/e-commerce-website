@@ -3,6 +3,8 @@ using e_commerce_website.Email;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,15 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProvid
 builder.Services.AddSingleton<IEmailSender,EmailSender>();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddRazorPages();
+
+// **************
+builder.Services.ConfigureApplicationCookie(
+    {
+    options.LoginPath = $"/Identity/Account/Login";
+    options.LogOutPath= $"/Identity/Account/Logout";
+    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+});
+//**************
 
 
 var app = builder.Build();
