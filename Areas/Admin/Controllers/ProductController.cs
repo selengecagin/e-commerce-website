@@ -138,7 +138,7 @@ namespace e_commerce_website.Areas.Admin.Controllers
                     {
                         files[0].CopyTo(filesStreams);
                     }
-                    product.Image = @"\images\product" + fileName + ext;
+                    product.Image = @"\images\product\" + fileName + ext;
                 }
 
                     _context.Update(product);
