@@ -19,8 +19,15 @@ namespace e_commerce_website.Email
                 HtmlContent = htmlMessage,
             };
             message.AddTo(new EmailAddress(email));
-          throw;
+            try
+            {
+                return client.SendEmailAsync(message);
             }
+            catch (Exception)
+            {
+                throw;
+            }
+            return null;
         }
         public EmailOptions Options { get; set; }
         public EmailSender(IOptions <EmailOptions> emailOptions) {
