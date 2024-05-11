@@ -23,10 +23,19 @@ namespace e_commerce_website.Areas.Customer.Controllers
             return View(product);
         }
 
+        public IActionResult Details(int id)
+        {
+            var product = _db.Product.FirstOrDefault(i=>i.Id == id); // first of default - to collect only one product info
+            return View();
+        }
+
+
         public IActionResult Privacy()
         {
             return View();
         }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
