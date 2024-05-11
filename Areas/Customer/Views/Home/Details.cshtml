@@ -36,7 +36,14 @@
                                     <h5>Stock</h5>
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Model.Product.IsStock
+                                    @if (Model.Product.IsStock)
+                                    {
+                                        <label class="text-success">In stock</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="text-danger">Out of stock</label>
+                                    }
                                 </dd>
 
                                 <dt class="col-sm-3">
