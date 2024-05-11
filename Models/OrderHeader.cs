@@ -15,6 +15,7 @@ namespace e_commerce_website.Models
         [ForeignKey("ApplicationUserId")]
         public ApplicationUser ApplicationUser { get; set; }
 
+
         public DateTime OrderDate { get; set; }
 
         public double OrderTotal { get; set; }
