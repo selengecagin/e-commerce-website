@@ -16,9 +16,45 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            <dl class="row">
+
+                                <dt class="col-sm-3">
+                                    <h5>Title</h5>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @Model.Product.Title
+                                </dd>
+
+                                <dt class="col-sm-3">
+                                    <h5>Description</h5>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @Model.Product.Description
+                                </dd>
+
+                                <dt class="col-sm-3">
+                                    <h5>Stock</h5>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @Model.Product.IsStock
+                                </dd>
+
+                                <dt class="col-sm-3">
+                                    <h5>Price</h5>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @Model.Product.Price.ToString("0.00") $
+                                </dd>
+
+                                <dt class="col-sm-3">
+                                    <h5>Quantity</h5>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    <input asp-for="Count" class="form-control"/>
+                                </dd>
+
+                            </dl>
+
                         </div>
                     </div>
                 </div>
