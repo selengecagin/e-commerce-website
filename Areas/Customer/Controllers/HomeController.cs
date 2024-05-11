@@ -34,7 +34,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 ProductId = product.Id
 
             };
-            return View();
+            return View(cart);
         }
 
 
