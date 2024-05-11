@@ -20,7 +20,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProvid
 
 builder.Services.AddSingleton<IEmailSender,EmailSender>();
 //***
-builder.Services.Configure<EmailOptions>(Configuration);
+// builder.Services.Configure<EmailOptions>(Configuration);
 
 
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
