@@ -24,5 +24,7 @@ namespace e_commerce_website.Models
 
         public double Price { get; set; }
 
+
+
     }
 }
