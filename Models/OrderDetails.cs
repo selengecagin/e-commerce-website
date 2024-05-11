@@ -20,5 +20,9 @@ namespace e_commerce_website.Models
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
 
+        public int Count { get; set; }
+
+        public double Price { get; set; }
+
     }
 }
