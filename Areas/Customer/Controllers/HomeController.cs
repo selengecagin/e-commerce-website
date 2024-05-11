@@ -20,12 +20,20 @@ namespace e_commerce_website.Areas.Customer.Controllers
         public IActionResult Index()
         {
             var product = _db.Product.Where(i=>i.IsHome).ToList();
+            ShoppingCart cart = new ShoppingCart();
+
             return View(product);
         }
 
         public IActionResult Details(int id)
         {
             var product = _db.Product.FirstOrDefault(i=>i.Id == id); // first of default - to collect only one product info
+            ShoppingCart cart = new ShoppingCart()
+            {
+                Product = product,
+                ProductId = product.Id
+
+            };
             return View();
         }
 
