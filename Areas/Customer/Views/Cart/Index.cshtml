@@ -65,7 +65,16 @@
                         </tr>
                     </tbody>
                 </table>
-      
+                <div class="row">
+                    <div class="col-md-4">
+                        <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-primary form-control">Continue Shopping</a>
+                    </div>
+
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <a asp-area="Customer" asp-controller="Cart" asp-action="Summary" class="btn btn-success form-control">Complete Order</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
