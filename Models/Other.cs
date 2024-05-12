@@ -5,6 +5,6 @@
         public const string Role_Individual = "Individual";
         public const string Role_Admin = "Admin";
         public const string Role_User = "User";
-
+        public const string ssShoppingCart  = "Shopping Cart Session";
     }
 }
