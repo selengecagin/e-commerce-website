@@ -37,6 +37,10 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 OrderHeader = new Models.OrderHeader(),
                 ListCart = _db.ShoppingCart.Where(i=> i.ApplicationUserId == claim.Value).Include(i=>i.Product)
             };
+
+            ShoppingCartVM.OrderHeader.OrderTotal = 0;
+            ShoppingCartVM.OrderHeader.ApplicationUser = _db.ApplicationUsers.FirstOrDefault(i => i.Id == claim.Value);
+
             return View();
         }
     }
