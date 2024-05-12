@@ -64,7 +64,8 @@ namespace e_commerce_website.Areas.Customer.Controllers
                     cart.Count += Scart.Count;
                 }
 
-
+                _db.SaveChanges();
+                return RedirectToAction(nameof(Index));
             }
             else
             {
