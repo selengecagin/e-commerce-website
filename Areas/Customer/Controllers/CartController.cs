@@ -17,7 +17,9 @@ namespace e_commerce_website.Areas.Customer.Controllers
             ApplicationDbContext db
             )
         {
-
+            _db = db;
+            _emailSender = emailSender;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
