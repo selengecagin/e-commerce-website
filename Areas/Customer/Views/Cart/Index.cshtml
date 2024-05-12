@@ -17,6 +17,7 @@
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Total</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,9 +46,10 @@
                                 </td>
 
                                 <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success"><i class="bi bi-pencil"></i> Edit</a>
-
-                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+                                    @item.Product.Price.ToString("0.00") $
+                                </td>
+                                <td>
+                                    @((item.Count*item.Product.Price).toString("0.00")) $
                                 </td>
                             </tr>
                         }
