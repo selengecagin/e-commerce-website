@@ -22,11 +22,14 @@ namespace e_commerce_website.Areas.Customer.Controllers
         public IActionResult Index()
         {
             var product = _db.Product.Where(i=>i.IsHome).ToList();
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-               var claimsIdentity = (ClaimsIdentity)User.Identity;
-                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-
-            ShoppingCart cart = new ShoppingCart();
+            if(claim != null)
+            {
+                var count = _db.ShoppingCart.Where(i=>i.ApplicationUserId == claim.Value).ToList().Count();
+                HttpContext.Session.SetInt32(Other.ssShoppingCart,count);
+            }
 
             return View(product);
         }
