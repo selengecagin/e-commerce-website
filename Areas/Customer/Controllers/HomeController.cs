@@ -65,6 +65,8 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 }
 
                 _db.SaveChanges();
+                var count = _db.ShoppingCart.Where(i => i.ApplicationUserId == Scart.ApplicationUserId).ToList().Count();
+                HttpContext.Session.SetInt32(Other.ssShoppingCart, count);
                 return RedirectToAction(nameof(Index));
             }
             else
