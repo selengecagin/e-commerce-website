@@ -22,6 +22,10 @@ namespace e_commerce_website.Areas.Customer.Controllers
         public IActionResult Index()
         {
             var product = _db.Product.Where(i=>i.IsHome).ToList();
+
+               var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
             ShoppingCart cart = new ShoppingCart();
 
             return View(product);
