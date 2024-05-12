@@ -41,7 +41,12 @@ namespace e_commerce_website.Areas.Customer.Controllers
             ShoppingCartVM.OrderHeader.OrderTotal = 0;
             ShoppingCartVM.OrderHeader.ApplicationUser = _db.ApplicationUsers.FirstOrDefault(i => i.Id == claim.Value);
 
-            return View();
+            foreach ( var item in ShoppingCartVM.ListCart)
+            {
+                ShoppingCartVM.OrderHeader.OrderTotal += (item.Count * item.Product.Price);
+            }
+
+            return View(ShoppingCartVM);
         }
     }
 }
