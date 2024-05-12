@@ -12,6 +12,13 @@ namespace e_commerce_website.Areas.Customer.Controllers
         private readonly IEmailSender _emailSender;
         private readonly UserManager<IdentityUser> _userManager;
 
+        public CartController(UserManager<IdentityUser> userManager,
+            IEmailSender emailSender,
+            ApplicationDbContext db
+            )
+        {
+
+        }
 
         public IActionResult Index()
         {
