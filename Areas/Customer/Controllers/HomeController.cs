@@ -3,6 +3,7 @@ using e_commerce_website.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace e_commerce_website.Areas.Customer.Controllers
 {
@@ -38,7 +39,37 @@ namespace e_commerce_website.Areas.Customer.Controllers
             return View(cart);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public IActionResult Details(ShoppingCart Scart)
+        {
+            Scart.Id = 0;
 
+            if (ModelState.IsValid)
+            {
+
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                Scart.ApplicationUserId = claim.Value;
+                ShoppingCart cart = _db.ShoppingCart.FirstOrDefault(
+                    u=>u.ApplicationUserId == Scart.ApplicationUserId && u.ProductId == Scart.ProductId);
+
+
+            }
+            else
+            {
+                var product = _db.Product.FirstOrDefault(i => i.Id == Scart.Id); 
+                ShoppingCart cart = new ShoppingCart()
+                {
+                    Product = product,
+                    ProductId = product.Id
+
+                };
+            }
+       
+            return View(cart);
+        }
 
 
         public IActionResult Privacy()
