@@ -1,6 +1,8 @@
 ﻿@using e_commerce_website.Models;
 @using Microsoft.AspNetCore.Http;
 @inject IHttpContextAccessor IHttpContextAccessor;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,6 +52,31 @@
                             }
 
                         </ul>
+                   <div>
+                            @if (User.Identity.IsAuthenticated && HttpContextAccessor.HttpContext.Session.GetInt32(Other.ssShoppingCart) != null)
+                            {
+                                <div style="color:white">
+                                    <a asp-area="Customer" asp-controller="Cart" asp-action="Index" class="nav-link text-white">
+                                        @{
+                                            var count = HttpContextAccessor.HttpContext.Session.GetInt32(Other.ssShoppingCart);
+                                        }
+                                        <i class="bi bi-cart2"></i> (@count)
+                                    </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div style="color:white">
+                                    <a href="/Identity/Account/Login" class="nav-link text-white">
+                                        @{
+                                            var count = HttpContextAccessor.HttpContext.Session.GetInt32(Other.ssShoppingCart);
+                                        }
+                                        <i class="bi bi-cart2"></i> (0)
+                                    </a>
+                                </div>
+                            }
+                        </div>
+   
                         <partial name="_LoginPartial" />
                     </div>
                 </div>
