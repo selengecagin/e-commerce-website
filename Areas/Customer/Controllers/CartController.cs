@@ -3,6 +3,7 @@ using e_commerce_website.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace e_commerce_website.Areas.Customer.Controllers
 {
@@ -28,6 +29,8 @@ namespace e_commerce_website.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
             return View();
         }
     }
