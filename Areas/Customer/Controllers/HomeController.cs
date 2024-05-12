@@ -1,5 +1,6 @@
 using e_commerce_website.Data;
 using e_commerce_website.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -36,6 +37,8 @@ namespace e_commerce_website.Areas.Customer.Controllers
             };
             return View(cart);
         }
+
+
 
 
         public IActionResult Privacy()
