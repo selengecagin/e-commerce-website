@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using e_commerce_website.Data;
+using e_commerce_website.Models;
 
 namespace e_commerce_website.Areas.Identity.Pages.Account
 {
@@ -119,6 +120,11 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+
+                    var user = _db.ApplicationUsers.FirstOrDefault(i => i.Email == Input.Email);
+                    int count = _db.ShoppingCart.Where(i => i.ApplicationUserId == user.Id).Count();
+                    HttpContext.Session.SetInt32(Other.ssShoppingCart,count);
+
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
