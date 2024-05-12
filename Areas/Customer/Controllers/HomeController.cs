@@ -55,6 +55,15 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 ShoppingCart cart = _db.ShoppingCart.FirstOrDefault(
                     u=>u.ApplicationUserId == Scart.ApplicationUserId && u.ProductId == Scart.ProductId);
 
+                if (cart == null)
+                {
+                    _db.ShoppingCart.Add(Scart);
+                }
+                else
+                {
+                    cart.Count += Scart.Count;
+                }
+
 
             }
             else
@@ -68,7 +77,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 };
             }
        
-            return View(cart);
+            return View(Scart);
         }
 
 
