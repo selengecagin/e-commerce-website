@@ -52,16 +52,16 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 var claimsIdentity = (ClaimsIdentity)User.Identity;
                 var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
                 Scart.ApplicationUserId = claim.Value;
-                ShoppingCart cart = _db.ShoppingCart.FirstOrDefault(
+                ShoppingCart ShopCart = _db.ShoppingCart.FirstOrDefault(
                     u=>u.ApplicationUserId == Scart.ApplicationUserId && u.ProductId == Scart.ProductId);
 
-                if (cart == null)
+                if (ShopCart == null)
                 {
                     _db.ShoppingCart.Add(Scart);
                 }
                 else
                 {
-                    cart.Count += Scart.Count;
+                    ShopCart.Count += Scart.Count;
                 }
 
                 _db.SaveChanges();
