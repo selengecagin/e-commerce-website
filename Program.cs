@@ -46,6 +46,14 @@ builder.Services.AddAuthentication().AddGoogle(options =>
     options.ClientSecret = "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";
 });
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(45);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+
 
 var app = builder.Build();
 
