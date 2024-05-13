@@ -77,7 +77,9 @@ namespace e_commerce_website.Areas.Customer.Controllers
 
             await _emailSender.SendEmailAsync(user.Email, "Confirm your email",
             $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-          
+
+            ModelState.AddModelError(string.Empty, "Send confirmation code...");
+            return RedirectToAction("Success");
         }
 
     }
