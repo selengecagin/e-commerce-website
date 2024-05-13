@@ -53,7 +53,7 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-
+builder.Services.AddOptions<EmailOptions>().Bind(builder.Configuration.GetSection("EmailOptions"));
 
 var app = builder.Build();
 
