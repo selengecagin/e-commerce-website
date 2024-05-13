@@ -85,6 +85,14 @@ namespace e_commerce_website.Areas.Customer.Controllers
         {
             return View();
         }
+
+        public IActionResult Add(int cartId)
+        {
+            var cart = _db.ShoppingCart.FirstOrDefault(i => i.Id == cartId);
+            cart.Count += 1;
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
     }
 
 }
