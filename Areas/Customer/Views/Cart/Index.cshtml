@@ -73,7 +73,17 @@
 
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
-                            <a asp-area="Customer" asp-controller="Cart" asp-action="Summary" class="btn btn-success form-control">Complete Order</a>
+
+                            @if (!Model.OrderHeader.ApplicationUser.EmailConfirmed)
+                            {
+                                <div> <button type="submit" class"btn btn-warning form-control text-white">Proceed to Email Confirmation</button> </div>
+                            }
+                            else
+
+                            {
+                                <a asp-area="Customer" asp-controller="Cart" asp-action="Summary" class="btn btn-success form-control">Complete Order</a>
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -86,4 +96,3 @@
     }
 
 </form>
-
