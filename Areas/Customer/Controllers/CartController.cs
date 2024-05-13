@@ -81,6 +81,10 @@ namespace e_commerce_website.Areas.Customer.Controllers
             ModelState.AddModelError(string.Empty, "Send confirmation code...");
             return RedirectToAction("Success");
         }
-
+        public IActionResult Success()
+        {
+            return View();
+        }
     }
+
 }
