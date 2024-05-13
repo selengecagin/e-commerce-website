@@ -113,6 +113,19 @@ namespace e_commerce_website.Areas.Customer.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Remove(int cartId)
+        {
+            var cart = _db.ShoppingCart.FirstOrDefault(i => i.Id == cartId);
+          
+                var count = _db.ShoppingCart.Where(i => i.ApplicationUserId == cart.ApplicationUserId).ToList().Count();
+                _db.ShoppingCart.Remove(cart);
+                _db.SaveChanges();
+                HttpContext.Session.SetInt32(Other.ssShoppingCart, count - 1);
+            
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 
 }
