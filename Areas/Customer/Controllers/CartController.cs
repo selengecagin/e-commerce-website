@@ -60,6 +60,11 @@ namespace e_commerce_website.Areas.Customer.Controllers
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
             var user = _db.ApplicationUsers.FirstOrDefault(i => i.Id == claim.Value);
+            if (user == null)
+            {
+                ModelState.AddModelError(string.Empty, " Failed to confirm email");
+            }
+
 
 
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
