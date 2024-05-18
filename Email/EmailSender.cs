@@ -8,7 +8,7 @@ namespace e_commerce_website.Email
 {
     public class EmailSender : IEmailSender
     {
-        public Task SendEmailAsync(string email, string subject, string htmlMessage)
+        public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
             var client = new SendGridClient(Options.SendGridKey);
             var message = new SendGridMessage()
@@ -21,16 +21,16 @@ namespace e_commerce_website.Email
             message.AddTo(new EmailAddress(email));
             try
             {
-                return client.SendEmailAsync(message);
+                await client.SendEmailAsync(message);
             }
             catch (Exception)
             {
                 throw;
             }
-            return null;
         }
         public EmailOptions Options { get; set; }
-        public EmailSender(IOptions <EmailOptions> emailOptions) {
+        public EmailSender(IOptions<EmailOptions> emailOptions)
+        {
             Options = emailOptions.Value;
         }
     }
