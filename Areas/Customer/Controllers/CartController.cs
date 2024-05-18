@@ -31,6 +31,22 @@ namespace e_commerce_website.Areas.Customer.Controllers
             _userManager = userManager;
         }
 
+
+
+        public IActionResult Summary()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            ShoppingCartVM = new ShoppingCartVM()
+            {
+                OrderHeader = new Models.OrderHeader(),
+                ListCart = _db.ShoppingCart.Where(i => i.ApplicationUserId == claim.Value).Include(i => i.Product)
+            };
+
+
+
+        }
+   
         public IActionResult Index()
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
