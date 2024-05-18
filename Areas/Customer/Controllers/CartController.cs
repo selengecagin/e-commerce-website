@@ -47,8 +47,9 @@ namespace e_commerce_website.Areas.Customer.Controllers
             {
                 item.Price = item.Product.Price;
                 ShoppingCartVM.OrderHeader.OrderTotal += (item.Count * item.Product.Price);
-            }
 
+            }
+            return View(ShoppingCartVM);
         }
    
         public IActionResult Index()
