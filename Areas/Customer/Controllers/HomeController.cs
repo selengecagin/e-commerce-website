@@ -21,14 +21,14 @@ namespace e_commerce_website.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            var product = _db.Product.Where(i=>i.IsHome).ToList();
+            var product = _db.Product.Where(i => i.IsHome).ToList();
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            if(claim != null)
+            if (claim != null)
             {
-                var count = _db.ShoppingCart.Where(i=>i.ApplicationUserId == claim.Value).ToList().Count();
-                HttpContext.Session.SetInt32(Other.ssShoppingCart,count);
+                var count = _db.ShoppingCart.Where(i => i.ApplicationUserId == claim.Value).ToList().Count();
+                HttpContext.Session.SetInt32(Other.ssShoppingCart, count);
             }
 
             return View(product);
@@ -36,7 +36,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
 
         public IActionResult Details(int id)
         {
-            var product = _db.Product.FirstOrDefault(i=>i.Id == id); // first of default - to collect only one product info
+            var product = _db.Product.FirstOrDefault(i => i.Id == id); // first of default - to collect only one product info
             ShoppingCart cart = new ShoppingCart()
             {
                 Product = product,
@@ -53,14 +53,14 @@ namespace e_commerce_website.Areas.Customer.Controllers
         {
             Scart.Id = 0;
 
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
             if (ModelState.IsValid)
             {
-
-                var claimsIdentity = (ClaimsIdentity)User.Identity;
-                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
                 Scart.ApplicationUserId = claim.Value;
                 ShoppingCart ShopCart = _db.ShoppingCart.FirstOrDefault(
-                    u=>u.ApplicationUserId == Scart.ApplicationUserId && u.ProductId == Scart.ProductId);
+                    u => u.ApplicationUserId == Scart.ApplicationUserId && u.ProductId == Scart.ProductId);
 
                 if (ShopCart == null)
                 {
@@ -78,15 +78,19 @@ namespace e_commerce_website.Areas.Customer.Controllers
             }
             else
             {
-                var product = _db.Product.FirstOrDefault(i => i.Id == Scart.Id); 
+                var product = _db.Product.FirstOrDefault(i => i.Id == Scart.ProductId);
                 ShoppingCart cart = new ShoppingCart()
                 {
-                    Product = product,
-                    ProductId = product.Id
-
+                    ProductId = Scart.ProductId,
+                    ApplicationUserId = claim.Value,
+                    Count = Scart.Count,
                 };
+                _db.ShoppingCart.Add(cart);
+                _db.SaveChanges();
+
+                Scart.Product = product;
             }
-       
+
             return View(Scart);
         }
 
