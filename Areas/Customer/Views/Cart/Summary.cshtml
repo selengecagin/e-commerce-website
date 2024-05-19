@@ -10,18 +10,64 @@
              <div class="card-body">
                  <div class="row">
                      <div class="col-md-6">
+                
                         <div class="mb-3 row">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.Name"   class="form-control">
+                                <span asp-validation-for="OrderHeader.Name" class="text-danger"></span>
                             </div>
                         </div>
+
                         <div class="mb-3 row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Surname</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.Surname" class="form-control">
+                                <span asp-validation-for="OrderHeader.Surname" class="text-danger"></span>
                             </div>
                         </div>
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Adress</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.Adress" class="form-control">
+                                <span asp-validation-for="OrderHeader.Adress" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Province</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.Province" class="form-control">
+                                <span asp-validation-for="OrderHeader.Province" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">City</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.City" class="form-control">
+                                <span asp-validation-for="OrderHeader.City" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Zip Code</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.ZipCode" class="form-control">
+                                <span asp-validation-for="OrderHeader.ZipCode" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Phone Number</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.PhoneNumber" class="form-control">
+                                <span asp-validation-for="OrderHeader.PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+
                      </div>
                  </div>
              </div>    

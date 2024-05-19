@@ -42,8 +42,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 OrderHeader = new Models.OrderHeader(),
                 ListCart = _db.ShoppingCart.Where(i => i.ApplicationUserId == claim.Value).Include(i => i.Product)
             };
-
-            foreach (var item in ShoppingCartVM.ListCart)
+            foreach (var item in ShoppingCartVM?.ListCart)
             {
                 item.Price = item.Product.Price;
                 ShoppingCartVM.OrderHeader.OrderTotal += (item.Count * item.Product.Price);
