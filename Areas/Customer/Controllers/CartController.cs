@@ -84,7 +84,9 @@ namespace e_commerce_website.Areas.Customer.Controllers
                     Price = item.Price,
                     Count = item.Count,
                 };
-              
+                ShoppingCartVM.OrderHeader.OrderTotal += item.Count * item.Product.Price;
+                model.OrderHeader.OrderTotal += item.Count * item.Product.Price;
+                _db.OrderDetails.Add(orderDetails);
             }
 
         }
