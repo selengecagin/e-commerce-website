@@ -21,6 +21,8 @@ namespace e_commerce_website.Areas.Customer.Controllers
         [BindProperty]
         public ShoppingCartVM ShoppingCartVM { get; set; }
 
+
+
         public CartController(UserManager<IdentityUser> userManager,
             IEmailSender emailSender,
             ApplicationDbContext db
@@ -30,8 +32,6 @@ namespace e_commerce_website.Areas.Customer.Controllers
             _emailSender = emailSender;
             _userManager = userManager;
         }
-
-
 
         public IActionResult Summary()
         {
@@ -58,7 +58,16 @@ namespace e_commerce_website.Areas.Customer.Controllers
             }
             return View(ShoppingCartVM);
         }
-   
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Summary(ShoppingCartVM model)
+        {
+        
+        }
+
+
         public IActionResult Index()
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
