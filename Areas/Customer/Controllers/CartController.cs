@@ -88,6 +88,10 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 model.OrderHeader.OrderTotal += item.Count * item.Product.Price;
                 _db.OrderDetails.Add(orderDetails);
             }
+            _db.ShoppingCart.RemoveRange(ShoppingCartVM.ListCart);
+            _db.SaveChanges();
+            HttpContext.Session.SetInt32(Other.ssShoppingCart, 0);
+            return RedirectToAction("Order Completed");
 
         }
 
