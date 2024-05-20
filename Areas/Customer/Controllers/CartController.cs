@@ -91,8 +91,14 @@ namespace e_commerce_website.Areas.Customer.Controllers
             _db.ShoppingCart.RemoveRange(ShoppingCartVM.ListCart);
             _db.SaveChanges();
             HttpContext.Session.SetInt32(Other.ssShoppingCart, 0);
-            return RedirectToAction("Order Completed");
+            return RedirectToAction("OrderCompleted");
 
+        }
+
+
+        public IActionResult OrderCompleted()
+        {
+            return View();
         }
 
 
