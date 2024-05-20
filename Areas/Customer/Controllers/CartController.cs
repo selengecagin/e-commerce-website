@@ -72,6 +72,21 @@ namespace e_commerce_website.Areas.Customer.Controllers
             ShoppingCartVM.OrderHeader.ApplicationUserId = claim.Value;
             ShoppingCartVM.OrderHeader.OrderDate = DateTime.Now;
             _db.OrderHeaders.Add(ShoppingCartVM.OrderHeader);
+            _db.SaveChanges();
+
+            foreach (var item in ShoppingCartVM.ListCart)
+            {
+                item.Price += item.Product.Price;
+                OrderDetails orderDetails = new OrderDetails()
+                {
+                    ProductId = item.ProductId,
+                    OrderId = ShoppingCartVM.OrderHeader.Id,
+                    Price = item.Price,
+                    Count = item.Count,
+                };
+              
+            }
+
         }
 
 
