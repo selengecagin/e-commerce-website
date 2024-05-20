@@ -67,6 +67,11 @@ namespace e_commerce_website.Areas.Customer.Controllers
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
             ShoppingCartVM.ListCart = _db.ShoppingCart.Where(i => i.ApplicationUserId == claim.Value).Include(i => i.Product);
+            // Bring order status
+            ShoppingCartVM.OrderHeader.OrderStatus = Other.OrderOnHold;
+            ShoppingCartVM.OrderHeader.ApplicationUserId = claim.Value;
+            ShoppingCartVM.OrderHeader.OrderDate = DateTime.Now;
+            _db.OrderHeaders.Add(ShoppingCartVM.OrderHeader);
         }
 
 
