@@ -64,7 +64,9 @@ namespace e_commerce_website.Areas.Customer.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Summary(ShoppingCartVM model)
         {
-        
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            ShoppingCartVM.ListCart = _db.ShoppingCart.Where(i => i.ApplicationUserId == claim.Value).Include(i => i.Product);
         }
 
 
