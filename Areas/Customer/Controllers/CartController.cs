@@ -189,7 +189,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
             basketItems.Add(thirdBasketItem);
             request.BasketItems = basketItems;
 
-            Payment payment = Payment.Create(request, options);
+            return Payment.Create(request, options);
         }
 
         public IActionResult OrderCompleted()
