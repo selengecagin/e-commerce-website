@@ -132,9 +132,9 @@ namespace e_commerce_website.Areas.Customer.Controllers
             PaymentCard paymentCard = new PaymentCard();
             paymentCard.CardHolderName = model.OrderHeader.CardName;
             paymentCard.CardNumber = model.OrderHeader.CardNumber;
-            paymentCard.ExpireMonth = "12";
-            paymentCard.ExpireYear = "2030";
-            paymentCard.Cvc = "123";
+            paymentCard.ExpireMonth = model.OrderHeader.ExpirationMonth;
+            paymentCard.ExpireYear = model.OrderHeader.ExpirationYear;
+            paymentCard.Cvc = model.OrderHeader.CVC;
             paymentCard.RegisterCard = 0;
             request.PaymentCard = paymentCard;
 
