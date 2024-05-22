@@ -55,7 +55,7 @@
                         <div class="mb-3 row">
                             <label for="inputPassword" class="col-sm-3 col-form-label">Phone Number</label>
                             <div class="col-sm-9">
-                                <input type="text" asp-for="OrderHeader.PhoneNumber" class="form-control">
+                                <input type="number" asp-for="OrderHeader.PhoneNumber" class="form-control">
                                 <span asp-validation-for="OrderHeader.PhoneNumber" class="text-danger"></span>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                         <div class="mb-3 row">
                             <label for="inputPassword" class="col-sm-3 col-form-label">Zip Code</label>
                             <div class="col-sm-9">
-                                <input type="text" asp-for="OrderHeader.ZipCode" class="form-control">
+                                <input type="number" asp-for="OrderHeader.ZipCode" class="form-control">
                                 <span asp-validation-for="OrderHeader.ZipCode" class="text-danger"></span>
                             </div>
                         </div>
