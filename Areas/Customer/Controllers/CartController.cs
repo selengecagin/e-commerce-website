@@ -171,8 +171,22 @@ namespace e_commerce_website.Areas.Customer.Controllers
             request.BillingAddress = billingAddress;
 
             List<BasketItem> basketItems = new List<BasketItem>();
-            
-            request.BasketItems = basketItems;
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+                //bring items in the user basket
+                foreach (var item in _db.ShoppingCart.Where(i=>i.ApplicationUserId == claim.Value).Include(i=>i.Product))
+                {
+                    basketItems.Add(new BasketItem()
+                    {
+                        Id = item.Id.ToString(),
+                        Name=item.Product.Title,
+                        Category1=item.Product.CategoryId.ToString(),
+                        ItemType = BasketItemType.PHYSICAL.ToString(),
+                        Price=(item.Price*item.Count).ToString(),  
+                    });
+                }
+                request.BasketItems = basketItems;
 
             return Payment.Create(request, options);
         }
