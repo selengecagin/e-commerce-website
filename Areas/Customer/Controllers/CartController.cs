@@ -105,7 +105,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
         {
             Options options = new Options();
             options.ApiKey = "sandbox-gUr2XrFWuZa8ERpib7lZ2GsiEx1AzJmO";
-            options.SecretKey = "your secret key";
+            options.SecretKey = "sandbox-Mliqdp4PM4TPc8eIiMaDtKoEyWi7UXEa";
             options.BaseUrl = "https://sandbox-api.iyzipay.com";
 
             CreatePaymentRequest request = new CreatePaymentRequest();
