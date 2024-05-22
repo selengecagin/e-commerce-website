@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using System.Text;
+using Iyzipay.Model;
+using Iyzipay.Request;
 
 namespace e_commerce_website.Areas.Customer.Controllers
 {
@@ -88,6 +90,9 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 model.OrderHeader.OrderTotal += item.Count * item.Product.Price;
                 _db.OrderDetails.Add(orderDetails);
             }
+
+            var payment = PaymentProcess(model);
+
             _db.ShoppingCart.RemoveRange(ShoppingCartVM.ListCart);
             _db.SaveChanges();
             HttpContext.Session.SetInt32(Other.ssShoppingCart, 0);
@@ -95,6 +100,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
 
         }
 
+      
 
         public IActionResult OrderCompleted()
         {
