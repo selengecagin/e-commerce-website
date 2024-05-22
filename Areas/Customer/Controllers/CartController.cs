@@ -104,7 +104,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
         private Payment PaymentProcess(ShoppingCartVM model)
         {
             Options options = new Options();
-            options.ApiKey = "your api key";
+            options.ApiKey = "sandbox-gUr2XrFWuZa8ERpib7lZ2GsiEx1AzJmO";
             options.SecretKey = "your secret key";
             options.BaseUrl = "https://sandbox-api.iyzipay.com";
 
