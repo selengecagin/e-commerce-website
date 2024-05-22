@@ -191,13 +191,13 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 return Payment.Create(request, options);
             }
 
-            public IActionResult OrderCompleted()
+         IActionResult OrderCompleted()
             {
                 return View();
             }
 
 
-            public IActionResult Index()
+         IActionResult Index()
             {
                 var claimsIdentity = (ClaimsIdentity)User.Identity;
                 var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
@@ -220,7 +220,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
 
             [HttpPost]
             [ActionName("Index")]
-            public async Task<IActionResult> IndexPOST()
+          async Task<IActionResult> IndexPOST()
             {
                 var claimsIdentity = (ClaimsIdentity)User.Identity;
                 var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
@@ -248,12 +248,12 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 return RedirectToAction("Success");
             }
 
-            public IActionResult Success()
+     IActionResult Success()
             {
                 return View();
             }
 
-            public IActionResult Add(int cartId)
+   IActionResult Add(int cartId)
             {
                 var cart = _db.ShoppingCart.FirstOrDefault(i => i.Id == cartId);
                 cart.Count += 1;
@@ -261,7 +261,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            public IActionResult Decrease(int cartId)
+        IActionResult Decrease(int cartId)
             {
                 var cart = _db.ShoppingCart.FirstOrDefault(i => i.Id == cartId);
 
@@ -281,7 +281,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            public IActionResult Remove(int cartId)
+       IActionResult Remove(int cartId)
             {
                 var cart = _db.ShoppingCart.FirstOrDefault(i => i.Id == cartId);
 

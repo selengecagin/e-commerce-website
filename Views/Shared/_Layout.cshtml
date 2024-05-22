@@ -26,7 +26,7 @@
                 <div class="container-fluid">
 
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                        <img src="~/images/image/logo.png" class="img-fluid" width="80" height="auto" /> E-Shop 
+                        <img src="~/images/image/logo.png" class="img-fluid" width="80" height="auto" />
                     </a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -37,6 +37,15 @@
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                              
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">About Us</a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Contact</a>
+
                             </li>
 
                             @if (User.IsInRole(Other.Role_Admin))
