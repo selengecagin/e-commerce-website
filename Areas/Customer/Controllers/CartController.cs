@@ -112,15 +112,25 @@ namespace e_commerce_website.Areas.Customer.Controllers
             request.Locale = Locale.TR.ToString();
             request.ConversationId = new Random().Next(1111,9999).ToString();
             request.Price = model.OrderHeader.OrderTotal.ToString();
-            request.PaidPrice = "1.2";
+            request.PaidPrice = model.OrderHeader.OrderTotal.ToString();
             request.Currency = Currency.TRY.ToString();
             request.Installment = 1;
             request.BasketId = "B67832";
             request.PaymentChannel = PaymentChannel.WEB.ToString();
             request.PaymentGroup = PaymentGroup.PRODUCT.ToString();
 
-            PaymentCard paymentCard = new PaymentCard();
+           {/* PaymentCard paymentCard = new PaymentCard();
             paymentCard.CardHolderName = "John Doe";
+            paymentCard.CardNumber = "5528790000000008";
+            paymentCard.ExpireMonth = "12";
+            paymentCard.ExpireYear = "2030";
+            paymentCard.Cvc = "123";
+            paymentCard.RegisterCard = 0;
+            request.PaymentCard = paymentCard;
+            */
+
+            PaymentCard paymentCard = new PaymentCard();
+            paymentCard.CardHolderName = model.OrderHeader.CardName;
             paymentCard.CardNumber = "5528790000000008";
             paymentCard.ExpireMonth = "12";
             paymentCard.ExpireYear = "2030";
