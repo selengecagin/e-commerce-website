@@ -139,19 +139,19 @@ namespace e_commerce_website.Areas.Customer.Controllers
             request.PaymentCard = paymentCard;
 
             Buyer buyer = new Buyer();
-            buyer.Id = "BY789";
-            buyer.Name = "John";
-            buyer.Surname = "Doe";
-            buyer.GsmNumber = "+905350000000";
+            buyer.Id = model.OrderHeader.Id.ToString();
+            buyer.Name = model.OrderHeader.Name;
+            buyer.Surname = model.OrderHeader.Surname;
+            buyer.GsmNumber = model.OrderHeader.PhoneNumber;
             buyer.Email = "email@email.com";
             buyer.IdentityNumber = "74300864791";
             buyer.LastLoginDate = "2015-10-05 12:43:35";
             buyer.RegistrationDate = "2013-04-21 15:12:09";
-            buyer.RegistrationAddress = "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1";
+            buyer.RegistrationAddress = model.OrderHeader.Adress;
             buyer.Ip = "85.34.78.112";
-            buyer.City = "Istanbul";
+            buyer.City = model.OrderHeader.City;
             buyer.Country = "Turkey";
-            buyer.ZipCode = "34732";
+            buyer.ZipCode = model.OrderHeader.ZipCode;
             request.Buyer = buyer;
 
             Address shippingAddress = new Address();
