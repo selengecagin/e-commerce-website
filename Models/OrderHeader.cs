@@ -41,5 +41,19 @@ namespace e_commerce_website.Models
 
         [Required]
         public string ZipCode { get; set; }
+
+        [Required]
+        public string CardName { get; set; }
+
+        [Required]
+        public string CardNumber { get; set; }
+        [Required]
+        public string ExpirationMonth { get; set; }
+
+        [Required]
+        public string ExpirationYear { get; set; }
+
+        [Required]
+        public string CVC { get; set; }
     }
 }
