@@ -110,7 +110,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
 
             CreatePaymentRequest request = new CreatePaymentRequest();
             request.Locale = Locale.TR.ToString();
-            request.ConversationId = "123456789";
+            request.ConversationId = new Random().Next(1111,9999).ToString();
             request.Price = "1";
             request.PaidPrice = "1.2";
             request.Currency = Currency.TRY.ToString();
