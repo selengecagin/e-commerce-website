@@ -47,7 +47,7 @@ namespace e_commerce_website.Areas.Admin.Controllers
             }
             else
             {
-                orderHeaderList = _db.OrderHeaders.Where(i => i.ApplicationUserId == claim.Value & i.OrderStatus==Other.OrderOnHold).Include(i => i.ApplicationUser);
+                orderHeaderList = _db.OrderHeaders.Where(i => i.ApplicationUserId == claim.Value && i.OrderStatus==Other.OrderOnHold).Include(i => i.ApplicationUser);
             }
             return View(orderHeaderList);
         }
@@ -65,7 +65,7 @@ namespace e_commerce_website.Areas.Admin.Controllers
             }
             else
             {
-                orderHeaderList = _db.OrderHeaders.Where(i => i.ApplicationUserId == claim.Value & i.OrderStatus == Other.OrderConfirmed).Include(i => i.ApplicationUser);
+                orderHeaderList = _db.OrderHeaders.Where(i => i.ApplicationUserId == claim.Value && i.OrderStatus == Other.OrderConfirmed).Include(i => i.ApplicationUser);
             }
             return View(orderHeaderList);
         }
@@ -83,7 +83,7 @@ namespace e_commerce_website.Areas.Admin.Controllers
             }
             else
             {
-                orderHeaderList = _db.OrderHeaders.Where(i => i.ApplicationUserId == claim.Value & i.OrderStatus == Other.OrderShipped).Include(i => i.ApplicationUser);
+                orderHeaderList = _db.OrderHeaders.Where(i => i.ApplicationUserId == claim.Value && i.OrderStatus == Other.OrderShipped).Include(i => i.ApplicationUser);
             }
             return View(orderHeaderList);
         }
