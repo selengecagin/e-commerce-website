@@ -51,6 +51,24 @@ namespace e_commerce_website.Areas.Admin.Controllers
             }
             return View(orderHeaderList);
         }
+
+
+        public IActionResult ConfirmedOrders()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            IEnumerable<OrderHeader> orderHeaderList;
+
+            if (User.IsInRole(Other.Role_Admin))
+            {
+                orderHeaderList = _db.OrderHeaders.Where(i => i.OrderStatus == Other.OrderConfirmed);
+            }
+            else
+            {
+                orderHeaderList = _db.OrderHeaders.Where(i => i.ApplicationUserId == claim.Value & i.OrderStatus == Other.OrderConfirmed).Include(i => i.ApplicationUser);
+            }
+            return View(orderHeaderList);
+        }
     }
 }
 
