@@ -13,6 +13,10 @@ namespace e_commerce_website.Areas.Admin.Controllers
     public class OrderController : Controller
     {
         private readonly ApplicationDbContext _db;
+
+        [BindProperty]
+        public OrderDetailsVM OrderVM { get; set; }
+
         public OrderController(ApplicationDbContext db)
         {
             _db = db;
