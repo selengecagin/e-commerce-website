@@ -26,8 +26,10 @@ namespace e_commerce_website.Areas.Admin.Controllers
         {
             OrderVM = new OrderDetailsVM
             {
-            
-            }
+                OrderHeader = _db.OrderHeaders.FirstOrDefault(i => i.Id == id),
+                OrderDetails = _db.OrderDetails.Where(x => x.OrderId == id).Include(x => x.Product)
+            };
+            return View(OrderVM);
         }
         public IActionResult Index()
         {
