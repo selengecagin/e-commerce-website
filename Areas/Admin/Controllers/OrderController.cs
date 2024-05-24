@@ -10,7 +10,10 @@ namespace e_commerce_website.Areas.Admin.Controllers
     public class OrderController : Controller
     {
         private readonly ApplicationDbContext _db;
-  
+        public OrderController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
 
         public IActionResult Index()
         {
@@ -21,7 +24,3 @@ namespace e_commerce_website.Areas.Admin.Controllers
 
 
 
-public OrderController(ApplicationDbContext db)
-{
-
-}
