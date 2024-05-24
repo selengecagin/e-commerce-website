@@ -22,6 +22,13 @@ namespace e_commerce_website.Areas.Admin.Controllers
             _db = db;
         }
 
+        public IActionResult Details(int id)
+        {
+            OrderVM = new OrderDetailsVM
+            {
+            
+            }
+        }
         public IActionResult Index()
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
