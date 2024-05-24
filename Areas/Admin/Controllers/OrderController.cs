@@ -2,6 +2,7 @@
 using e_commerce_website.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace e_commerce_website.Areas.Admin.Controllers
 {
@@ -17,6 +18,8 @@ namespace e_commerce_website.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
             return View();
         }
     }
