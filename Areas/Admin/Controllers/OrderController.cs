@@ -42,8 +42,6 @@ namespace e_commerce_website.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-
-
         public IActionResult Details(int id)
         {
             OrderVM = new OrderDetailsVM
