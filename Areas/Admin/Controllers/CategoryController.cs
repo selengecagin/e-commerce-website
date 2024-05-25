@@ -67,6 +67,9 @@ namespace e_commerce_website.Areas.Admin.Controllers
             {
                 _context.Add(category);
                 await _context.SaveChangesAsync();
+                _toast.AddSuccessToastMessage("Addition Process Successful!");
+
+
                 return RedirectToAction(nameof(Index));
             }
             return View(category);
@@ -106,6 +109,7 @@ namespace e_commerce_website.Areas.Admin.Controllers
                 {
                     _context.Update(category);
                     await _context.SaveChangesAsync();
+                    _toast.AddSuccessToastMessage("Update Process Successful!");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
