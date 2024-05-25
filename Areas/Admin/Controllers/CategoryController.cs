@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using e_commerce_website.Data;
 using e_commerce_website.Models;
 using Microsoft.AspNetCore.Authorization;
+using NToastNotify;
 
 namespace e_commerce_website.Areas.Admin.Controllers
 {
@@ -16,8 +17,10 @@ namespace e_commerce_website.Areas.Admin.Controllers
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IToastNotification _toast;
 
-        public CategoryController(ApplicationDbContext context)
+
+        public CategoryController(ApplicationDbContext context, IToastNotification _toast)
         {
             _context = context;
         }
