@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using NToastNotify;
 using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,15 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+//Toaster
+builder.Services.AddMvc().AddNToastNotifyToastr(new ToastrOptions()
+{
+    CloseButton = true,
+    PositionClass = ToastPositions.TopRight,
+    PreventDuplicates = true,
+
+});
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
     .AddEntityFrameworkStores<ApplicationDbContext>();
