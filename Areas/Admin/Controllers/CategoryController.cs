@@ -20,9 +20,10 @@ namespace e_commerce_website.Areas.Admin.Controllers
         private readonly IToastNotification _toast;
 
 
-        public CategoryController(ApplicationDbContext context, IToastNotification _toast)
+        public CategoryController(ApplicationDbContext context, IToastNotification toast)
         {
             _context = context;
+            _toast = toast;
         }
 
         // GET: Admin/Category
