@@ -32,6 +32,15 @@ namespace e_commerce_website.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        [Authorize(Roles = Other.Role_Admin)]
+        public IActionResult InitiateShipment()
+        {
+            OrderHeader orderHeader = _db.OrderHeaders.FirstOrDefault(i => i.Id == OrderVM.OrderHeader.Id);
+            orderHeader.OrderStatus = Other.OrderShipped;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
 
 
