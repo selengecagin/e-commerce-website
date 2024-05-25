@@ -9,28 +9,31 @@
 
         @await Component.InvokeAsync("CategoryList")
 
-        @foreach (var item in Model)
+        @if (Model.Count() > 0)
         {
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        @item.Title
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header">
+                            @item.Title
+                        </div>
+                        <img src="@item.Image" class="card-img-top" alt="..." style="height:275px" />
+                        <div class="card-body" style="height:125px">
+                            <p class="card-text">@item.Description</p>
+                        </div>
+                        <div class="card-footer">
+                            <label style="font-size:20px;color:midnightblue"><b>@item.Price.ToString("0.00") $ </b></label>
+                            <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-outline-info" style="float:right">Detail</a>
+                        </div>
                     </div>
-                    <img src="@item.Image" class="card-img-top" alt="..." style="height:275px" />
-                    <div class="card-body" style="height:125px">
-                        <p class="card-text">@item.Description</p>
-                    </div>
-                    <div class="card-footer">
-
-                        <label style="font-size:20px;color:midnightblue"><b>@item.Price.ToString("0.00") $ </b></label>
-                        <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-outline-info" style="float:right">Detail</a>
-                    </div>
-
                 </div>
-
+            }
+        }
+        else{
+            <div class="col-md-9 alert alert-secondary text-center">
+                <p>Could not find any products in this category...</p>
             </div>
         }
     </div>
 </div>
-
-
