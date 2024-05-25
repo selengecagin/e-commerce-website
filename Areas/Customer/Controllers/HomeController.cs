@@ -19,6 +19,18 @@ namespace e_commerce_website.Areas.Customer.Controllers
             _db = db;
         }
 
+
+        public IActionResult Search(string q)
+        {
+            if (!String.IsNullOrEmpty(q))
+            {
+                var search = _db.Product.Where(i=>i.Title.Contains(q) || i.Description.Contains(q));
+                return View(search);
+            }
+            return View();
+        }
+
+
         public IActionResult CategoryDetails(int? id)
         {
             var product = _db.Product.Where(i=>i.CategoryId == id).ToList();
