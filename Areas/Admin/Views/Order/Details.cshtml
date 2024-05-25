@@ -1,5 +1,5 @@
 ﻿@model e_commerce_website.Models.OrderDetailsVM
-
+@{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -74,6 +74,35 @@
 
                 </div>
             </div>
+
+            <div class="col-md-6">
+                <div class="col-md-12">
+
+                    <ul class="list-group mb-3">
+
+                        @foreach (var item in Model.OrderDetails)
+                        {
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <h6 class="my-0">@item.Product.Title</h6>
+                                    <small class="text-muted">Quantity: @item.Count</small>
+                                </div>
+                                <span class="text-muted">@((item.Count * item.Product.Price).ToString("0.00")) $</span>
+                            </li>
+                        }
+
+                        <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+                            <div class="text-success">
+                                <h6 class="my-0">Total Price: </h6>
+                            </div>
+                            <span class="text-success">@(Model.OrderHeader.OrderTotal.ToString("0.00")) $</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
         </div>
     </div>
 
