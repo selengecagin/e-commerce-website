@@ -105,6 +105,11 @@
                         {
                             <input type="submit" value="Initiate Shipment" class="btn btn-primary form-control" formaction="/Admin/Order/InitiateShipment" formmethod="post"/>
                         }
+
+                        @if (Model.OrderHeader.OrderStatus == Other.OrderOnHold)
+                        {
+                            <input type="submit" value="Confirm" class="btn btn-primary form-control" formaction="/Admin/Order/Confirmed" formmethod="post" />
+                        }
                     }
 
 
