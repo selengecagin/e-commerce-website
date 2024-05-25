@@ -5,6 +5,77 @@
 }
 
 <form method="post">
-    <input />
+    <input hidden asp-for="OrderHeader.Id"/>
 
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+                <div>
+
+                    <dl class="row">
+                        <dt class="col-sm-4">
+                            <h5>Name</h5>
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.Name
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <h5>Surname</h5>
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.Surname
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <h5>Phone Number</h5>
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.PhoneNumber
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <h5>Adress</h5>
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.Adress
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <h5>Province</h5>
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.Province
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <h5>City</h5>
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.City
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <h5>Zip Code</h5>
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.ZipCode
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <h5>Order Date</h5>
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.OrderDate.ToShortDateString()
+                        </dd>
+
+                    </dl>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
 </form>
