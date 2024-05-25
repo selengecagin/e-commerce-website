@@ -111,7 +111,10 @@
                             <input type="submit" value="Confirm" class="btn btn-primary form-control" formaction="/Admin/Order/Confirmed" formmethod="post" />
                         }
                     }
-
+                    else
+                    {
+                        <label class="btn btn-primary form-control">@Model.OrderHeader.OrderStatus</label>
+                    }
 
                 </div>
 
