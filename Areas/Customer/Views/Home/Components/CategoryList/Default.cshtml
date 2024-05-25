@@ -7,10 +7,12 @@
             <a ASP-action="Index" asp-controller="Home" class="list-group-item list-group-item-action @(ViewBag.CategoryId == null? "active":"")" aria-current="true">
                 ALL PRODUCTS
             </a>
-            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-            <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
+            
+            @foreach(var item in Model)
+            {
+                <a asp-action="CategoryDetails" class="list-group-item list-group-item-action @(ViewBag.CategoryId?.ToString() == item.Id.ToString()?"active":"")" asp-route-id="@item.Id">@item.Name</a>
+            }
+
         </div>
     </div>
 </div>
