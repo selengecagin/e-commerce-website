@@ -22,6 +22,19 @@ namespace e_commerce_website.Areas.Admin.Controllers
             _db = db;
         }
 
+        [HttpPost]
+        [Authorize(Roles = Other.Role_Admin)]
+        public IActionResult Confirmed()
+        {
+            OrderHeader orderHeader = _db.OrderHeaders.FirstOrDefault(i =>i.Id ==OrderVM.OrderHeader.Id);
+            orderHeader.OrderStatus = Other.OrderConfirmed;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+
+
         public IActionResult Details(int id)
         {
             OrderVM = new OrderDetailsVM
