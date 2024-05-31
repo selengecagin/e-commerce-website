@@ -24,7 +24,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
         {
             if (!String.IsNullOrEmpty(q))
             {
-                var search = _db.Product.Where(i=>i.Title.Contains(q) || i.Description.Contains(q));
+                var search = _db.Product.Where(i => i.Title.Contains(q) || i.Description.Contains(q));
                 return View(search);
             }
             return View();
@@ -33,7 +33,7 @@ namespace e_commerce_website.Areas.Customer.Controllers
 
         public IActionResult CategoryDetails(int? id)
         {
-            var product = _db.Product.Where(i=>i.CategoryId == id).ToList();
+            var product = _db.Product.Where(i => i.CategoryId == id).ToList();
             ViewBag.CategoryId = id;
             return View(product);
         }
@@ -98,15 +98,25 @@ namespace e_commerce_website.Areas.Customer.Controllers
             }
             else
             {
+                var existingCart = _db.ShoppingCart.FirstOrDefault(e => e.ApplicationUserId == claim.Value && e.ProductId == Scart.ProductId);
                 var product = _db.Product.FirstOrDefault(i => i.Id == Scart.ProductId);
-                ShoppingCart cart = new ShoppingCart()
+
+                if (existingCart != null)
                 {
-                    ProductId = Scart.ProductId,
-                    ApplicationUserId = claim.Value,
-                    Count = Scart.Count,
-                };
-                _db.ShoppingCart.Add(cart);
-                _db.SaveChanges();
+                    existingCart.Count += 1;
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    ShoppingCart cart = new ShoppingCart()
+                    {
+                        ProductId = Scart.ProductId,
+                        ApplicationUserId = claim.Value,
+                        Count = Scart.Count,
+                    };
+                    _db.ShoppingCart.Add(cart);
+                    _db.SaveChanges();
+                }
 
                 Scart.Product = product;
             }

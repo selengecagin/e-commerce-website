@@ -46,14 +46,14 @@ builder.Services.ConfigureApplicationCookie( options =>
 
 builder.Services.AddAuthentication().AddFacebook(options =>
 {
-    options.AppId = "982910942884332";
-    options.AppSecret = "0a60ae646899dd3d3e489b04fe986f10";
+    options.AppId = Environment.GetEnvironmentVariable("FACEBOOK_APP_ID");
+    options.AppSecret = Environment.GetEnvironmentVariable("FACEBOOK_APP_SECRET");
 });
 
 builder.Services.AddAuthentication().AddGoogle(options =>
 {
-    options.ClientId = "172958120514-olh3crgnckj5hps7v5eib7va97qr1d5q.apps.googleusercontent.com";
-    options.ClientSecret = "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";
+    options.ClientId = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_ID");
+    options.ClientSecret = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_SECRET");
 });
 
 builder.Services.AddSession(options =>
