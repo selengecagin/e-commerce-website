@@ -17,8 +17,8 @@ namespace e_commerce_website.Email
 
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            string fromMail = "thedotnetchannelsender22@gmail.com";
-            string fromPassword = "yourpassword"; // Replace with your actual password
+            string fromMail = "selengecagin@gmail.com";
+            string fromPassword = "rjttqfbvmchkeaps"; // Replace with your actual password
 
             MailMessage message = new MailMessage();
             message.From = new MailAddress(fromMail);
