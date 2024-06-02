@@ -1,6 +1,6 @@
-#E-Commerce Website with Admin Panel
+E-Commerce Website with Admin Panel
 
-##Project Overview
+Project Overview
 This documentation outlines the development of an e-commerce website that includes a comprehensive admin panel for site management. The website aims to offer a seamless shopping experience, enhanced by a robust backend system that allows administrators to manage products, categories, orders, and notifications effectively.
 
 Project Goals
@@ -31,32 +31,6 @@ Technology Stack
 - Authentication: OAuth for Google and Facebook login integration.
 - Payment Gateway: Integration with a virtual POS service - IYZICO for secure transaction processing.
 
-Installation and Setup
-1- Clone the Repository:
-git clone https://github.com/selengecagin/e-commerce-website.git
-cd e-commerce-website
-
-
-2- Setup Database:
-Configure your SQL Server database.
-Update the connection string in the appsettings.json file.
-
-3- Install Dependencies:
-dotnet restore
-
-4- Run Migrations:
-dotnet ef database update
-
-5- Run the Application
-dotnet run
-
-Contributing
-We welcome contributions to enhance the functionality and features of this e-commerce website. Please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (git checkout -b feature-branch).
-3. Commit your changes (git commit -m 'Add some feature').
-4. Push to the branch (git push origin feature-branch).
 5. Open a pull request.
 
 Contact
