@@ -1,6 +1,6 @@
-E-Commerce Website with Admin Panel
+#E-Commerce Website with Admin Panel
 
-Project Overview
+##Project Overview
 This documentation outlines the development of an e-commerce website that includes a comprehensive admin panel for site management. The website aims to offer a seamless shopping experience, enhanced by a robust backend system that allows administrators to manage products, categories, orders, and notifications effectively.
 
 Project Goals
