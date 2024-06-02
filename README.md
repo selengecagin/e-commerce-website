@@ -4,24 +4,24 @@ Project Overview
 This documentation outlines the development of an e-commerce website that includes a comprehensive admin panel for site management. The website aims to offer a seamless shopping experience, enhanced by a robust backend system that allows administrators to manage products, categories, orders, and notifications effectively.
 
 Project Goals
-User-Friendly Platform: Develop a platform that supports product browsing, selection, and purchasing.
-Secure Payment System: Integrate a secure payment system for processing transactions.
-Comprehensive Admin Panel: Implement an admin panel for managing website content and user activities.
-User Authentication: Enable user registration and login via Google and Facebook.
-Email Verification: Incorporate email verification for new user registrations.
-Responsive Design: Ensure the website provides an optimal viewing experience across various devices.
+- User-Friendly Platform: Develop a platform that supports product browsing, selection, and purchasing.
+- Secure Payment System: Integrate a secure payment system for processing transactions.
+- Comprehensive Admin Panel: Implement an admin panel for managing website content and user activities.
+- User Authentication: Enable user registration and login via Google and Facebook.
+- Email Verification: Incorporate email verification for new user registrations.
+- Responsive Design: Ensure the website provides an optimal viewing experience across various devices.
 
 Key Features
-Admin Panel: Versatile backend interface for managing products, categories, and orders. Features include:
-Adding, deleting, and updating product information and categories.
-Reviewing and processing orders.
-Payment Integration: Secure processing of transactions with integration of a virtual POS system, supporting various payment methods.
-User Authentication: Option for users to register and log in using Google or Facebook accounts.
-Email Verification: System to verify email addresses of users upon registration.
-Responsive Design: Adjusts layout for optimal viewing on desktops, tablets, and smartphones.
-Search Functionality: In-site search box to facilitate easy access to products.
-Image Management: Admin panel allows addition, editing, and deletion of product images.
-Order Management: Capability to view, edit, and update the status of orders through the admin panel.
+- Admin Panel: Versatile backend interface for managing products, categories, and orders. Features include:
+- Adding, deleting, and updating product information and categories.
+- Reviewing and processing orders.
+- Payment Integration: Secure processing of transactions with integration of a virtual POS system, supporting various payment methods.
+- User Authentication: Option for users to register and log in using Google or Facebook accounts.
+- Email Verification: System to verify email addresses of users upon registration.
+- Responsive Design: Adjusts layout for optimal viewing on desktops, tablets, and smartphones.
+- Search Functionality: In-site search box to facilitate easy access to products.
+- Image Management: Admin panel allows addition, editing, and deletion of product images.
+- Order Management: Capability to view, edit, and update the status of orders through the admin panel.
 
 Technology Stack
 Framework: ASP.NET MVC Core-5 for robust web application development.
@@ -32,7 +32,6 @@ Authentication: OAuth for Google and Facebook login integration.
 Payment Gateway: Integration with a virtual POS service - IYZICO for secure transaction processing.
 
 Installation and Setup
-
 1- Clone the Repository:
 git clone https://github.com/selengecagin/e-commerce-website.git
 cd e-commerce-website
