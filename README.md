@@ -1,5 +1,7 @@
+# E-Commerce Website with Admin Panel
+
 ## Project Overview
-This MVP (Minimum Viable Product) documentation outlines the development of an e-commerce website that includes a comprehensive admin panel for site management. The website aims to offer a seamless shopping experience, enhanced by a robust backend system that allows administrators to manage products, categories, orders, and notifications effectively.
+This documentation outlines the development of an e-commerce website that includes a comprehensive admin panel for site management. The website aims to offer a seamless shopping experience, enhanced by a robust backend system that allows administrators to manage products, categories, orders, and notifications effectively.
 
 ## Project Goals
 - Develop a user-friendly e-commerce platform that supports product browsing, selection, and purchasing.
@@ -19,10 +21,6 @@ This MVP (Minimum Viable Product) documentation outlines the development of an e
 - **Image Management:** The admin panel will allow for the external addition, editing, and deletion of product images to keep the site's visuals fresh and up-to-date.
 - **Order Management:** Administrators will have the capability to view, edit, and update the status of orders through the admin panel, improving the efficiency of order processing.
 
-## Target Audience
-- Individuals seeking a convenient and comprehensive shopping experience online.
-- Administrators of e-commerce sites who require efficient management tools for products, orders, and user interactions.
-
 ## Technology Stack
 - **Framework:** ASP.NET MVC Core-5 for robust web application development.
 - **Frontend:** HTML, CSS, Bootstrap for responsive design, and JavaScript for interactive elements.
@@ -30,3 +28,6 @@ This MVP (Minimum Viable Product) documentation outlines the development of an e
 - **Database:** SQL Server for storing product, user, and order data.
 - **Authentication:** OAuth for Google and Facebook login integration.
 - **Payment Gateway:** Integration with a virtual POS service - IYZICO for secure transaction processing.
+
+## Contact
+For any inquiries or feedback, please contact the project maintainer at selengecagin@gmail.com.
