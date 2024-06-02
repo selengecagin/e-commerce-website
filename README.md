@@ -1,37 +1,32 @@
-E-Commerce Website with Admin Panel
+## Project Overview
+This MVP (Minimum Viable Product) documentation outlines the development of an e-commerce website that includes a comprehensive admin panel for site management. The website aims to offer a seamless shopping experience, enhanced by a robust backend system that allows administrators to manage products, categories, orders, and notifications effectively.
 
-Project Overview
-This documentation outlines the development of an e-commerce website that includes a comprehensive admin panel for site management. The website aims to offer a seamless shopping experience, enhanced by a robust backend system that allows administrators to manage products, categories, orders, and notifications effectively.
+## Project Goals
+- Develop a user-friendly e-commerce platform that supports product browsing, selection, and purchasing.
+- Integrate a secure payment system for processing transactions.
+- Implement an admin panel that facilitates the comprehensive management of website content and user activities.
+- Enable user registration and login via Google and Facebook.
+- Incorporate email verification for new user registrations.
+- Ensure the website is responsive and provides an optimal viewing experience across various devices.
 
-Project Goals
-- User-Friendly Platform: Develop a platform that supports product browsing, selection, and purchasing.
-- Secure Payment System: Integrate a secure payment system for processing transactions.
-- Comprehensive Admin Panel: Implement an admin panel for managing website content and user activities.
-- User Authentication: Enable user registration and login via Google and Facebook.
-- Email Verification: Incorporate email verification for new user registrations.
-- Responsive Design: Ensure the website provides an optimal viewing experience across various devices.
+## Key Features
+- **Admin Panel:** A versatile backend interface for managing products, categories, and orders. It will include features for adding, deleting, and updating product information and categories, as well as reviewing and processing orders.
+- **Payment Integration:** Secure processing of transactions with integration of a virtual POS system. This will allow for various payment methods to ensure convenience for users.
+- **User Authentication:** Users will have the option to register and log in using their Google or Facebook accounts, simplifying the access process.
+- **Email Verification:** A system to verify the email addresses of users upon registration, enhancing security and user trust.
+- **Responsive Design:** The website will be designed to adjust its layout for optimal viewing on desktops, tablets, and smartphones.
+- **Search Functionality:** An in-site search box to facilitate easy access to products by users, improving the overall shopping experience.
+- **Image Management:** The admin panel will allow for the external addition, editing, and deletion of product images to keep the site's visuals fresh and up-to-date.
+- **Order Management:** Administrators will have the capability to view, edit, and update the status of orders through the admin panel, improving the efficiency of order processing.
 
-Key Features
-- Admin Panel: Versatile backend interface for managing products, categories, and orders. Features include:
-- Adding, deleting, and updating product information and categories.
-- Reviewing and processing orders.
-- Payment Integration: Secure processing of transactions with integration of a virtual POS system, supporting various payment methods.
-- User Authentication: Option for users to register and log in using Google or Facebook accounts.
-- Email Verification: System to verify email addresses of users upon registration.
-- Responsive Design: Adjusts layout for optimal viewing on desktops, tablets, and smartphones.
-- Search Functionality: In-site search box to facilitate easy access to products.
-- Image Management: Admin panel allows addition, editing, and deletion of product images.
-- Order Management: Capability to view, edit, and update the status of orders through the admin panel.
+## Target Audience
+- Individuals seeking a convenient and comprehensive shopping experience online.
+- Administrators of e-commerce sites who require efficient management tools for products, orders, and user interactions.
 
-Technology Stack
-- Framework: ASP.NET MVC Core-5 for robust web application development.
-- Frontend: HTML, CSS, Bootstrap for responsive design, and JavaScript for interactive elements.
-- Backend: ASP.NET Core MVC for server-side logic and database management.
-- Database: SQL Server for storing product, user, and order data.
-- Authentication: OAuth for Google and Facebook login integration.
-- Payment Gateway: Integration with a virtual POS service - IYZICO for secure transaction processing.
-
-5. Open a pull request.
-
-Contact
-For any inquiries or feedback, please contact the project maintainer at selengecagin@gmail.com.
+## Technology Stack
+- **Framework:** ASP.NET MVC Core-5 for robust web application development.
+- **Frontend:** HTML, CSS, Bootstrap for responsive design, and JavaScript for interactive elements.
+- **Backend:** ASP.NET Core MVC for server-side logic and database management.
+- **Database:** SQL Server for storing product, user, and order data.
+- **Authentication:** OAuth for Google and Facebook login integration.
+- **Payment Gateway:** Integration with a virtual POS service - IYZICO for secure transaction processing.
