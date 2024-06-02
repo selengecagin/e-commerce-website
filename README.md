@@ -24,12 +24,12 @@ Key Features
 - Order Management: Capability to view, edit, and update the status of orders through the admin panel.
 
 Technology Stack
-Framework: ASP.NET MVC Core-5 for robust web application development.
-Frontend: HTML, CSS, Bootstrap for responsive design, and JavaScript for interactive elements.
-Backend: ASP.NET Core MVC for server-side logic and database management.
-Database: SQL Server for storing product, user, and order data.
-Authentication: OAuth for Google and Facebook login integration.
-Payment Gateway: Integration with a virtual POS service - IYZICO for secure transaction processing.
+- Framework: ASP.NET MVC Core-5 for robust web application development.
+- Frontend: HTML, CSS, Bootstrap for responsive design, and JavaScript for interactive elements.
+- Backend: ASP.NET Core MVC for server-side logic and database management.
+- Database: SQL Server for storing product, user, and order data.
+- Authentication: OAuth for Google and Facebook login integration.
+- Payment Gateway: Integration with a virtual POS service - IYZICO for secure transaction processing.
 
 Installation and Setup
 1- Clone the Repository:
