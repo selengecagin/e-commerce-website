@@ -26,6 +26,7 @@
                     <th>Email</th>
                 }
                 <th>Order Status</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -41,23 +42,23 @@
                     <td>
                         @item.PhoneNumber
                     </td>
-                    <td>
-                        @if (!User.IsInRole(Other.Role_Admin))
-                        {
+                    @if (!User.IsInRole(Other.Role_Admin))
+                    {
+                        <td>
                             @item.ApplicationUser.Email
-                        }
-                    </td>
+                        </td>
+                    }
                     <td>
                         @item.OrderStatus
                     </td>
                     <td>
                         @if (User.IsInRole(Other.Role_Admin))
                         {
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success"><i class="bi bi-pencil"></i> Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success"><i class="bi bi-pencil"></i> Edit</a>
                         }
                         else
                         {
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success"><i class="bi bi-pencil"></i> Details</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success"><i class="bi bi-pencil"></i> Details</a>
 
                         }
 
@@ -74,4 +75,3 @@
         let table = new DataTable('#myTable');
     </script>
 }
-
