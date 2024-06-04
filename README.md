@@ -21,7 +21,7 @@ This documentation outlines the development of an e-commerce website that includ
 - **Order Management:** Administrators will have the capability to view, edit, and update the status of orders through the admin panel, improving the efficiency of order processing.
 
 ## Technology Stack
-- **Framework:** ASP.NET MVC Core-5 for robust web application development.
+- **Framework:** ASP.NET MVC Core-8 for robust web application development.
 - **Frontend:** HTML, CSS, Bootstrap for responsive design, and JavaScript for interactive elements.
 - **Backend:** ASP.NET Core MVC for server-side logic and database management.
 - **Database:** SQL Server for storing product, user, and order data.
