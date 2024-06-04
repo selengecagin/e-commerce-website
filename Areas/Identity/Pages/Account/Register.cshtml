@@ -10,7 +10,7 @@
     <div class="col-md-4">
         <h1 style="color:black">@ViewData["Title"]</h1>
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-           
+
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
@@ -37,36 +37,36 @@
                 <label asp-for="Input.TelNo">Telephone Number</label>
                 <span asp-validation-for="Input.TelNo" class="text-danger"></span>
             </div>
-
+            @*
             <div class="form-floating mb-3">
-                <input asp-for="Input.Adress" class="form-control" autocomplete="adress" aria-required="true" placeholder="adress" />
-                <label asp-for="Input.Adress">Adress</label>
-                <span asp-validation-for="Input.Adress" class="text-danger"></span>
+            <input asp-for="Input.Adress" class="form-control" autocomplete="adress" aria-required="true" placeholder="adress" />
+            <label asp-for="Input.Adress">Adress</label>
+            <span asp-validation-for="Input.Adress" class="text-danger"></span>
             </div>
 
             <div class="form-floating mb-3">
-                <input asp-for="Input.Region" class="form-control" autocomplete="region" aria-required="true" placeholder="region" />
-                <label asp-for="Input.Region">Region</label>
-                <span asp-validation-for="Input.Region" class="text-danger"></span>
+            <input asp-for="Input.Region" class="form-control" autocomplete="region" aria-required="true" placeholder="region" />
+            <label asp-for="Input.Region">Region</label>
+            <span asp-validation-for="Input.Region" class="text-danger"></span>
             </div>
 
             <div class="form-floating mb-3">
-                <input asp-for="Input.Province" class="form-control" autocomplete="province" aria-required="true" placeholder="province" />
-                <label asp-for="Input.Province">Province</label>
-                <span asp-validation-for="Input.Province" class="text-danger"></span>
+            <input asp-for="Input.Province" class="form-control" autocomplete="province" aria-required="true" placeholder="province" />
+            <label asp-for="Input.Province">Province</label>
+            <span asp-validation-for="Input.Province" class="text-danger"></span>
             </div>
 
             <div class="form-floating mb-3">
-                <input asp-for="Input.City" class="form-control" autocomplete="city" aria-required="true" placeholder="city" />
-                <label asp-for="Input.City">City</label>
-                <span asp-validation-for="Input.City" class="text-danger"></span>
+            <input asp-for="Input.City" class="form-control" autocomplete="city" aria-required="true" placeholder="city" />
+            <label asp-for="Input.City">City</label>
+            <span asp-validation-for="Input.City" class="text-danger"></span>
             </div>
 
             <div class="form-floating mb-3">
-                <input asp-for="Input.ZipCode" class="form-control" autocomplete="zipcode" aria-required="true" placeholder="zip code" />
-                <label asp-for="Input.ZipCode">Zip Code</label>
-                <span asp-validation-for="Input.ZipCode" class="text-danger"></span>
-            </div>
+            <input asp-for="Input.ZipCode" class="form-control" autocomplete="zipcode" aria-required="true" placeholder="zip code" />
+            <label asp-for="Input.ZipCode">Zip Code</label>
+            <span asp-validation-for="Input.ZipCode" class="text-danger"></span>
+            </div> *@
 
             <div class="form-floating mb-3">
                 <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
@@ -79,7 +79,7 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
 
-           
+
             @if (User.IsInRole(Other.Role_Admin))
             {
                 <div class="form-group mb-5">
@@ -122,7 +122,6 @@
         </section>
     </div>
     <div class="col-md-6 col-md-offset-2">
-
     </div>
 </div>
 

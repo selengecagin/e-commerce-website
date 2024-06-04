@@ -117,20 +117,20 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
             [Required(ErrorMessage = "Surname is required.")]
             public string Surname { get; set; }
 
-            [Required(ErrorMessage = "Address is required.")]
-            public string Adress { get; set; }
+            //[Required(ErrorMessage = "Address is required.")]
+            public string? Adress { get; set; }
 
-            [Required(ErrorMessage = "Region is required.")]
-            public string Region { get; set; }
+            //[Required(ErrorMessage = "Region is required.")]
+            public string? Region { get; set; }
 
-            [Required(ErrorMessage = "City is required.")]
-            public string City { get; set; }
+            //[Required(ErrorMessage = "City is required.")]
+            public string? City { get; set; }
 
-            [Required(ErrorMessage = "Province is required.")]
-            public string Province { get; set; }
+            //[Required(ErrorMessage = "Province is required.")]
+            public string? Province { get; set; }
 
-            [Required(ErrorMessage = "Zip Code is required.")]
-            public string ZipCode { get; set; }
+            //[Required(ErrorMessage = "Zip Code is required.")]
+            public string? ZipCode { get; set; }
 
             [Required(ErrorMessage = "Telephone number is required.")]
             public string TelNo { get; set; }
@@ -146,11 +146,11 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
             Input = new InputModel()
             {
                 RoleList = _roleManager.Roles.Where(i => i.Name != Other.Role_Individual)
-                .Select(x=>x.Name)
-                .Select(u=>new SelectListItem
+                .Select(x => x.Name)
+                .Select(u => new SelectListItem
                 {
-                    Text=u,
-                    Value=u
+                    Text = u,
+                    Value = u
                 })
 
             };
@@ -189,7 +189,8 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
 
-                    if(!await _roleManager.RoleExistsAsync(Other.Role_Admin)) {
+                    if (!await _roleManager.RoleExistsAsync(Other.Role_Admin))
+                    {
 
                         await _roleManager.CreateAsync(new IdentityRole(Other.Role_Admin));
                     }
@@ -207,7 +208,7 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
                         await _roleManager.CreateAsync(new IdentityRole(Other.Role_Individual));
                     }
 
-           if(user.Role == null)
+                    if (user.Role == null)
                     {
                         await _userManager.AddToRoleAsync(user, Other.Role_User);
                     }
@@ -216,14 +217,14 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
                         await _userManager.AddToRoleAsync(user, user.Role);
                     }
 
-                      var userId = await _userManager.GetUserIdAsync(user);
-                      var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                      code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                      var callbackUrl = Url.Page(
-                         "/Account/ConfirmEmail",
-                         pageHandler: null,
-                          values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-                        protocol: Request.Scheme);
+                    var userId = await _userManager.GetUserIdAsync(user);
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    var callbackUrl = Url.Page(
+                       "/Account/ConfirmEmail",
+                       pageHandler: null,
+                        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
+                      protocol: Request.Scheme);
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
@@ -234,17 +235,17 @@ namespace e_commerce_website.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        if (user.Role==null)
+                        if (user.Role == null)
                         {
                             await _signInManager.SignInAsync(user, isPersistent: false);
                             return LocalRedirect(returnUrl);
                         }
                         else
                         {
-                            return RedirectToAction("Index", "User", new {Area="Admin"});   
+                            return RedirectToAction("Index", "User", new { Area = "Admin" });
                         }
 
-                     
+
                     }
                 }
                 foreach (var error in result.Errors)
