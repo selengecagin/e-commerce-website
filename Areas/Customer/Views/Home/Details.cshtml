@@ -1,0 +1,90 @@
+﻿@model e_commerce_website.Models.ShoppingCart
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <br/>
+    <div class="row">
+        <form method="post">
+            <input hidden asp-for="ProductId"/>
+            <div class="card mb-12">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="@Model.Product.Image" class="img-fluid rounded-start" alt="product-images" style="height:300px">
+                    </div>
+
+
+                    
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <dl class="row">
+
+                                <dt class="col-sm-3">
+                                    <h5>Title</h5>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @Model.Product.Title
+                                </dd>
+
+                                <dt class="col-sm-3">
+                                    <h5>Description</h5>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @Model.Product.Description
+                                </dd>
+
+                                <dt class="col-sm-3">
+                                    <h5>Stock</h5>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @if (Model.Product.IsStock)
+                                    {
+                                        <label class="text-success">In stock</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="text-danger">Out of stock</label>
+                                    }
+                                </dd>
+
+                                <dt class="col-sm-3">
+                                    <h5>Price</h5>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @Model.Product.Price.ToString("0.00") $
+                                </dd>
+
+                                <dt class="col-sm-3">
+                                    <h5>Quantity</h5>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    <input asp-for="Count" class="form-control"/>
+                                </dd>
+
+                            </dl>
+
+                        </div>
+
+
+                        <div class="col-md-4">
+                            @if (Model.Product.IsStock)
+                            {
+                                <button type="submit" class="btn btn-success form-control"><i class="bi bi-cart4"> Add to Cart</i></button>
+                            }
+                            else
+                            {
+                                <label class="btn btn-danger form-control">Sold Out</label>
+                            }
+
+                        </div>
+                </div>
+
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

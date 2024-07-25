@@ -1,0 +1,154 @@
+﻿@model e_commerce_website.Models.ShoppingCartVM
+@{
+    ViewData["Title"] = "Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <div class="container">
+        <div class="card">
+             <div class="card-body">
+                 <div class="row">
+                     <div class="col-md-6">
+                
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.Name"   class="form-control">
+                                <span asp-validation-for="OrderHeader.Name" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Surname</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.Surname" class="form-control">
+                                <span asp-validation-for="OrderHeader.Surname" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Adress</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.Adress" class="form-control">
+                                <span asp-validation-for="OrderHeader.Adress" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Province</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.Province" class="form-control">
+                                <span asp-validation-for="OrderHeader.Province" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">City</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="OrderHeader.City" class="form-control">
+                                <span asp-validation-for="OrderHeader.City" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Phone Number</label>
+                            <div class="col-sm-9">
+                                <input type="number" asp-for="OrderHeader.PhoneNumber" class="form-control">
+                                <span asp-validation-for="OrderHeader.PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Zip Code</label>
+                            <div class="col-sm-9">
+                                <input type="number" asp-for="OrderHeader.ZipCode" class="form-control">
+                                <span asp-validation-for="OrderHeader.ZipCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                     </div>
+                
+                 <div class="col-md-6">
+                        <div class="col-md-12">
+                     
+                            <ul class="list-group mb-3">
+
+                                @foreach(var item in Model.ListCart)
+                                {
+                                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                                        <div>
+                                            <h6 class="my-0">@item.Product.Title</h6>
+                                            <small class="text-muted">Quantity: @item.Count</small>
+                                        </div>
+                                        <span class="text-muted">@((item.Count*item.Product.Price).ToString("0.00")) $</span>
+                                    </li>
+                                }
+
+                                <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+                                    <div class="text-success">
+                                        <h6 class="my-0">Total Price: </h6>
+                                    </div>
+                                    <span class="text-success">@(Model.OrderHeader.OrderTotal.ToString("0.00")) $</span>
+                                </li>
+                            </ul>
+
+                        </div>
+
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-4 col-form-label">Card Holder Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" asp-for="OrderHeader.CardName" class="form-control">
+                                <span asp-validation-for="OrderHeader.CardName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-4 col-form-label">Card Number</label>
+                            <div class="col-sm-8">
+                                <input type="number" asp-for="OrderHeader.CardNumber" class="form-control">
+                                <span asp-validation-for="OrderHeader.CardNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                           
+                            <div class="col-sm-4">
+                                <input type="number" asp-for="OrderHeader.ExpirationMonth" class="form-control" placeholder="Month">
+                                <span asp-validation-for="OrderHeader.ExpirationMonth" class="text-danger"></span>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="number" asp-for="OrderHeader.ExpirationYear" class="form-control" placeholder="Year">
+                                <span asp-validation-for="OrderHeader.ExpirationYear" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <input type="number" asp-for="OrderHeader.CVC" class="form-control" placeholder="CVC">
+                                <span asp-validation-for="OrderHeader.CVC" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                 </div>
+             </div>   
+             
+            <div class="cart-footer">
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+
+                        <button type="submit" class="btn btn-success form-control">Complete Order</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,130 @@
+﻿@page
+@model RegisterModel
+@using e_commerce_website.Models
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1 style="color:black">@ViewData["Title"]</h1>
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Name" class="form-control" autocomplete="name" aria-required="true" placeholder="name" />
+                <label asp-for="Input.Name">Name</label>
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Surname" class="form-control" autocomplete="surname" aria-required="true" placeholder="surname" />
+                <label asp-for="Input.Surname">Surname</label>
+                <span asp-validation-for="Input.Surname" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email">Email</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.TelNo" class="form-control" autocomplete="telno" aria-required="true" placeholder="telephone number" />
+                <label asp-for="Input.TelNo">Telephone Number</label>
+                <span asp-validation-for="Input.TelNo" class="text-danger"></span>
+            </div>
+            @*
+            <div class="form-floating mb-3">
+            <input asp-for="Input.Adress" class="form-control" autocomplete="adress" aria-required="true" placeholder="adress" />
+            <label asp-for="Input.Adress">Adress</label>
+            <span asp-validation-for="Input.Adress" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+            <input asp-for="Input.Region" class="form-control" autocomplete="region" aria-required="true" placeholder="region" />
+            <label asp-for="Input.Region">Region</label>
+            <span asp-validation-for="Input.Region" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+            <input asp-for="Input.Province" class="form-control" autocomplete="province" aria-required="true" placeholder="province" />
+            <label asp-for="Input.Province">Province</label>
+            <span asp-validation-for="Input.Province" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+            <input asp-for="Input.City" class="form-control" autocomplete="city" aria-required="true" placeholder="city" />
+            <label asp-for="Input.City">City</label>
+            <span asp-validation-for="Input.City" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+            <input asp-for="Input.ZipCode" class="form-control" autocomplete="zipcode" aria-required="true" placeholder="zip code" />
+            <label asp-for="Input.ZipCode">Zip Code</label>
+            <span asp-validation-for="Input.ZipCode" class="text-danger"></span>
+            </div> *@
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.Password">Password</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+
+            @if (User.IsInRole(Other.Role_Admin))
+            {
+                <div class="form-group mb-5">
+                    @Html.DropDownListFor(i => i.Input.Role, Model.Input.RoleList, "Select a Role", new { @class = "form-control" })
+                </div>
+
+            }
+
+
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-dark form-control">Register</button>
+        </form>
+        <section>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
+                                article
+                                about setting up this ASP.NET application to support logging in via external services
+                            </a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-outline-dark" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
